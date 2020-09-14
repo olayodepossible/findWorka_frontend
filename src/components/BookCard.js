@@ -13,14 +13,16 @@ const BookCard = () => {
       <h4>Author: {}</h4>
       <h4>Released date: {}</h4>
       <div style={{ position: "relative" }}>
-        <span
-          className="count"
-          id="comment"
-          style={count}
-          onClick={showComment}
-        >
-          {} 3
-        </span>
+        <Link to="/comment">
+          <span
+            className="count"
+            id="comment"
+            style={count}
+            // onClick={showComment}
+          >
+            {} 3
+          </span>
+        </Link>
         <CommentOutlined style={{ fontSize: "30px", marginRight: "20px" }} />
         <span className="count" id="character" style={count}>
           {} 5
