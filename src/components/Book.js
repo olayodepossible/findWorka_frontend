@@ -4,24 +4,24 @@ import axios from "axios";
 import BookCard from "./BookCard";
 
 const Book = () => {
-  const [books, setBooks] = useState();
+  const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [bookPerPage, setBookPerPage] = useState(6);
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const { data } = await axios.get(
-          "https://findworka.herokuapp.com/api/books"
-        );
-        console.log(data);
-        setBooks(data);
-        setLoading(false);
-        return data;
-      } catch (error) {}
-    };
+  const fetchBooks = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://findworka.herokuapp.com/api/books"
+      );
+      console.log(data.data);
+      setBooks(data.data);
+      setLoading(false);
+      return data;
+    } catch (error) {}
+  };
 
+  useEffect(() => {
     fetchBooks();
   }, []);
 
@@ -34,14 +34,9 @@ const Book = () => {
   }
   return (
     <div style={cardStyle}>
-      {/*books.map((book) => (
-        <BookCard book={book} />
-      ))*/}
-
-      <BookCard />
-      <BookCard />
-      <BookCard />
-      <BookCard />
+      {books.map((book) => (
+        <BookCard key={book.id} book={book} />
+      ))}
     </div>
   );
 };

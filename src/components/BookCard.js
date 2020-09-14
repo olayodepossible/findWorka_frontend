@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CommentOutlined, UsergroupAddOutlined } from "@ant-design/icons";
 
-const BookCard = () => {
+const BookCard = ({ book: { name, comments_count, authors } }) => {
   return (
     <div className="card" style={bookCard}>
       {" "}
       <div>
         <img src="./assets/game_throne.jpg" alt="" />
       </div>{" "}
-      <h3>Tiltle: {}</h3>
+      <h3>Tiltle: {name}</h3>
       <h4>Author: {}</h4>
       <h4>Released date: {}</h4>
       <div style={{ position: "relative" }}>
@@ -20,12 +20,12 @@ const BookCard = () => {
             style={count}
             // onClick={showComment}
           >
-            {} 3
+            {comments_count}
           </span>
         </Link>
         <CommentOutlined style={{ fontSize: "30px", marginRight: "20px" }} />
         <span className="count" id="character" style={count}>
-          {} 5
+          {authors.length}
         </span>
         <UsergroupAddOutlined style={{ fontSize: "30px" }} />
       </div>
