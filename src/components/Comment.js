@@ -6,9 +6,9 @@ const Comment = () => {
   };
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <Link to="/">
-        <span>Back</span>
+        <button style={backButton}>Back</button>
       </Link>
       <div style={{ padding: "20px 0" }}>
         <img src="./assets/game_throne.jpg" alt="" />
@@ -40,16 +40,25 @@ const Comment = () => {
 export default Comment;
 
 const styleTextarea = {
-  //   width: "100%",
   padding: "7px",
   borderRadius: "3px",
   border: "1px solid #ccc",
 };
 
 const styleButton = {
-  //   width: "100%",
   padding: "7px",
   borderRadius: "3px",
   border: "1px solid #ccc",
   marginTop: "10px",
+};
+
+const backButton = {
+  position: "absolute",
+  right: "50px",
+  top: "20px",
+  padding: "7px 10px",
+  borderRadius: "3px",
+  border: "1px solid #ccc",
+  backgroundColor: "rgb(43, 144, 202)",
+  color: "#fff",
 };
