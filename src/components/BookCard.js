@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CommentOutlined, UsergroupAddOutlined } from "@ant-design/icons";
 
 const BookCard = () => {
@@ -12,7 +13,12 @@ const BookCard = () => {
       <h4>Author: {}</h4>
       <h4>Released date: {}</h4>
       <div style={{ position: "relative" }}>
-        <span className="count" id="comment" style={count}>
+        <span
+          className="count"
+          id="comment"
+          style={count}
+          onClick={showComment}
+        >
           {} 3
         </span>
         <CommentOutlined style={{ fontSize: "30px", marginRight: "20px" }} />
